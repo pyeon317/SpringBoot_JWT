@@ -2,6 +2,7 @@ package com.team04.jwt.Controller;
 
 import javax.servlet.http.HttpServletRequest;
 
+import org.apache.catalina.connector.Response;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -26,7 +27,7 @@ public class APIController {
 //		
 //		return new ResponseEntity<>(token, HttpStatus.OK);
 //	}
-////	
+//	
 //	//사용자정보 확인
 //	//토큰을 헤더에 담아서 사용자 정보와 함께 요청
 //	@PostMapping("/api/v1/getInfo")
@@ -57,8 +58,29 @@ public class APIController {
 	public String hello() {
 		return "<h3>헬로</h3>";
 	}
+	
+	//토큰기반으로 한 사용자 요청정보 반환기능
+	@PostMapping("/api/v1/getInfo")
+	public ResponseEntity<Object> getInfo() {
+		
+		System.out.println("토큰이 있으면 호출됨(데이터베이스 연결이 처리~)");
 		
 		
+		
+		
+		return new ResponseEntity<>("데이터",HttpStatus.OK);
+	}
+		
+	//회원가입 -> 토큰이 필요함
+	@PostMapping("/join")
+	public ResponseEntity<Object> join(){
+		
+		
+		
+		
+		
+		return new ResponseEntity<>("가입성공",HttpStatus.OK);
+	}
 	
 	
 }
